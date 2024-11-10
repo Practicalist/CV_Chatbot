@@ -46,7 +46,7 @@ responses = {
     
     ("challenging project", "difficult project", "overcoming obstacles", "challenging"): "One challenging project involved a high-profile cryptocurrency case where I streamlined the process and coordinated with multiple stakeholders. Utilized different sources to make the quality of our work product much higher. I also set up a collaborative system so there was no confusion.",
     
-    ("handle tight deadlines", "work under pressure", "working under pressure", "high-pressure situations", "high pressure", "under pressure"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
+    ("handle tight deadlines", "high-pressure situations", "high pressure", "under pressure"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
 
     ("contact", "e-mail", "email"): "My E-Mail is kimjy5028@gmail.com My Linkedin page is https://www.linkedin.com/in/jun-young-kim-a928651a7/ ",
 
