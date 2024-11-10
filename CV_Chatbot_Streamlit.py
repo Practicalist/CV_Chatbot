@@ -2,7 +2,7 @@ import streamlit as st
 
 # Define responses with multiple keyword triggers
 responses = {
-    ("legal background", "professional experiences", "professional experience", "work history", "legal experience", "work experiences", "work experience", "legal experiences", "tell me about your legal background"): "I am a licensed attorney in DC with experience in trademark disputes, M&A, and investment cases. My main skills include contract review and drafting, regulatory compliance, internal and external communications, and dispute resolution. I have worked at UNCITRAL-RCAP, focusing on international trade and arbitration, and at SEUM Law, a boutique firm specializing in startups, investment contracts, IT companies, and M&A. Currently, I work as a freelance attorney with an e-discovery and an immigration firm. Prior to my legal career, I worked in international business project management for the video game industry, which sparked my interest in IT and tech solutions. I'd be happy to discuss my diverse experiences further.",
+    ("legal background", "work history", "work as a lawyer", "professional experiences", "professional experience", "legal experience", "work experiences", "work experience", "legal experiences", "tell me about your legal background"): "I am a licensed attorney in DC with experience in trademark disputes, M&A, and investment cases. My main skills include contract review and drafting, regulatory compliance, internal and external communications, and dispute resolution. I have worked at UNCITRAL-RCAP, focusing on international trade and arbitration, and at SEUM Law, a boutique firm specializing in startups, investment contracts, IT companies, and M&A. Currently, I work as a freelance attorney with an e-discovery and an immigration firm. Prior to my legal career, I worked in international business project management for the video game industry, which sparked my interest in IT and tech solutions. I'd be happy to discuss my diverse experiences further.",
     
     ("specialties in law", "law specialties", "legal skills", "legal skill set", "skillsets", "areas of expertise"): "My expertise lies in IT law, IP law, and Alternative Dispute Resolution, backed by a strong foundation in legal research and document review. Additionally, I have experience managing compliance matters related to blockchain and other emerging technologies, an area I’d be open to elaborating on if needed.",
     
@@ -16,7 +16,7 @@ responses = {
     
     ("bar admissions", "admissions", "bar status"): "I am admitted to the DC Bar as of May 2022. Although I passed in October 2020, my admission was delayed due to pandemic-related travel restrictions. I’m glad to share further insights into this journey if it’s relevant.",
     
-    ("educational qualifications", "education", "academic background"): "I hold a J.D. from Handong International Law School and an LL.M. from Regent University School of Law, completed in December 2019. I graduated Cum Laude with a B.A. in Philosophy from Sogang University. My academic background combines analytical rigor with a practical understanding of international law.",
+    ("educational qualifications", "education", "academic background", "academic"): "I hold a J.D. from Handong International Law School and an LL.M. from Regent University School of Law, completed in December 2019. I graduated Cum Laude with a B.A. in Philosophy from Sogang University. My academic background combines analytical rigor with a practical understanding of international law.",
     
     ("philosophy", "choosing your undergraduate major"): "I chose Philosophy as my major because I was inspired by reading Plato’s *The Republic* in high school. Studying Philosophy has been an excellent foundation for critical thinking and argumentation, which I find highly applicable in law.",
     
@@ -43,10 +43,12 @@ responses = {
     ("leisure activities", "hobby", "hobbies", "free time", "fun activities"): "In my free time, I enjoy mountain walks while listening to audiobooks, and if the weather isn’t ideal, I unwind with video games. These activities help me recharge.",
     
     ("what motivates you", "work motivation", "motivational factors"): "I am driven by the challenge of solving complex problems that require both analytical and creative thinking. I find motivation in continuously learning and applying new skills to benefit my team.",
+
+    ("chatbot"): "This chatbot began as an idea for an interactive CV to showcase my skills in an innovative way. I initially considered using a chatbot service but wanted a more customized approach, so I decided to develop it myself with Python. After exploring options like Chatterbot, which wasn’t compatible, I worked with ChatGPT to implement a keyword-based approach that best fit my needs. Using my CV as a foundation, I created prompts and refined them based on past interview experiences. This project demonstrates my initiative and adaptability—I’d be glad to share more details!",
     
     ("challenging project", "difficult project", "overcoming obstacles", "challenging"): "One challenging project involved a high-profile cryptocurrency case where I streamlined the process and coordinated with multiple stakeholders. Utilized different sources to make the quality of our work product much higher. I also set up a collaborative system so there was no confusion.",
     
-    ("handle tight deadlines", "work under pressure", "working under pressure", "high-pressure situations"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
+    ("handle tight deadlines", "work under pressure", "working under pressure", "high-pressure situations", "high pressure", "under pressure"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
 
     ("contact", "e-mail", "email"): "My E-Mail is kimjy5028@gmail.com My Linkedin page is https://www.linkedin.com/in/jun-young-kim-a928651a7/ ",
 
@@ -72,12 +74,11 @@ You can ask questions like:
 If you have any further questions, feel free to reach out to me at kimjy5028@gmail.com.
 """)
 
-# Use a button to confirm input instead of triggering on every text change
+# Text input for user with both Enter and button to submit
 user_input = st.text_input("You:", "")
 
-if st.button("Ask"):
-    if user_input.strip():  # Check if user_input is not empty or just whitespace
+# Check if either Enter key is pressed (input not empty) or "Ask" button is clicked
+if user_input.strip() or st.button("Ask"):
+    if user_input.strip():  # Ensure the input is not empty or just whitespace
         bot_response = get_response(user_input)
         st.write(f"Bot: {bot_response}")
-    else:
-        st.write("Please enter a question to start the conversation.")
