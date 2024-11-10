@@ -28,8 +28,6 @@ responses = {
     
     ("python proficiency", "python knowledge", "python skills", "programming", "coding", "python"): "I have practical knowledge of Python and some familiarity with R, which I use for automating tasks, analyzing data, and creating custom solutions, like this chatbot.",
     
-    ("data analysis tools", "analysis tools", "data analysis experience", "data science"): "I am experienced with data analysis tools like Python and R, especially for document review and case analysis. During the pandemic, I completed the IBM Data Science Professional Certificate on Coursera, which opened the door to further study in data science.",
-    
     ("tech tools", "other tech skills", "tech familiarity"): "Alongside ChatGPT, Python, and R, I am well-versed in AWS cloud computing, document management systems, and e-discovery software, which enhance my ability to manage data securely and efficiently.",
     
     ("business development", "project manager", "project management"): "My experience in business development is strongly linked to my project management roles, where I’ve worked on finding growth opportunities, leading teams, and improving processes. I’ve managed international projects across different time zones and focused on making each project run more smoothly than the last. By setting clear goals and refining workflows, I’ve been able to help teams work more efficiently and achieve better results each time. These combined skills in business growth and project management are strengths I’m excited to bring to future roles.",
