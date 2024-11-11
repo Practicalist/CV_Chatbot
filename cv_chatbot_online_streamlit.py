@@ -2,7 +2,9 @@ import streamlit as st
 
 # Define responses with multiple keyword triggers
 responses = {
-    ("legal background", "work history", "work as a lawyer", "professional experiences", "professional experience", "legal experience", "work experiences", "work experience", "legal experiences", "tell me about your legal background"): "I am a licensed attorney in DC with experience in trademark disputes, M&A, and investment cases. My main skills include contract review and drafting, regulatory compliance, internal and external communications, and dispute resolution. I have worked at UNCITRAL-RCAP, focusing on international trade and arbitration, and at SEUM Law, a boutique firm specializing in startups, investment contracts, IT companies, and M&A. Currently, I work as a freelance attorney with an e-discovery and an immigration firm. Prior to my legal career, I worked in international business project management for the video game industry, which sparked my interest in IT and tech solutions. I'd be happy to discuss my diverse experiences further.",
+    ("hello", "hi", "good morning", "good afternoon", "good evening"): "Hello! It’s great to meet you. I’m here to answer any questions you might have about my background and experience. And if there’s something I can’t cover here, I’d be happy to discuss it with you in person!",
+
+    ("legal background", "work history", "work as a lawyer", "professional experiences", "professional experience", "legal experience", "work experiences", "work experience", "legal experiences"): "I am a licensed attorney in DC with experience in trademark disputes, M&A, and investment cases. My main skills include contract review and drafting, regulatory compliance, internal and external communications, and dispute resolution. I have worked at UNCITRAL-RCAP, focusing on international trade and arbitration, and at SEUM Law, a boutique firm specializing in startups, investment contracts, IT companies, and M&A. Currently, I work as a freelance attorney with an e-discovery and an immigration firm. Prior to my legal career, I worked in international business project management for the video game industry, which sparked my interest in IT and tech solutions. I'd be happy to discuss my diverse experiences further.",
     
     ("specialties in law", "law specialties", "legal skills", "legal skill set", "skillsets", "areas of expertise"): "My expertise lies in IT law, IP law, and Alternative Dispute Resolution, backed by a strong foundation in legal research and document review. Additionally, I have experience managing compliance matters related to blockchain and other emerging technologies, an area I’d be open to elaborating on if needed.",
     
@@ -20,7 +22,7 @@ responses = {
     
     ("philosophy", "choosing your undergraduate major"): "I chose Philosophy as my major because I was inspired by reading Plato’s *The Republic* in high school. Studying Philosophy has been an excellent foundation for critical thinking and argumentation, which I find highly applicable in law.",
     
-    ("professional certifications", "certs", "certifications", "professional memberships", "aws", "cloud", "ciarb", "amazon"): "I am an AWS Certified Cloud Practitioner and an Associate Member of the Chartered Institute of Arbitrators. Recently, I was selected for the final stage of the AICC program—a specialized training organized by KIPO and WIPO to develop IP specialists. This program expanded my expertise in global IP management and commercialization.",
+    ("certs", "certifications", "professional memberships", "aws", "cloud", "ciarb", "amazon"): "I am an AWS Certified Cloud Practitioner and an Associate Member of the Chartered Institute of Arbitrators. Recently, I was selected for the final stage of the AICC program—a specialized training organized by KIPO and WIPO to develop IP specialists. This program expanded my expertise in global IP management and commercialization.",
     
     ("skills", "professional skills"): "My skills span IT law, IP law, Alternative Dispute Resolution, legal research, document review, and fluent bilingual communication in Korean and English. My project management experience has equipped me with the ability to conduct effective internal and external communications and to research new business opportunities.",
     
@@ -28,7 +30,11 @@ responses = {
     
     ("python proficiency", "python knowledge", "python skills", "programming", "coding", "python"): "I have practical knowledge of Python and some familiarity with R, which I use for automating tasks, analyzing data, and creating custom solutions, like this chatbot.",
     
-    ("tech tools", "other tech skills", "tech familiarity"): "Alongside ChatGPT, Python, and R, I am well-versed in AWS cloud computing, document management systems, and e-discovery software, which enhance my ability to manage data securely and efficiently.",
+    ("data analysis tools", "analysis tools", "data analysis experience", "data science"): "I am experienced with data analysis tools like Python and R, especially for document review and case analysis. During the pandemic, I completed the IBM Data Science Professional Certificate on Coursera, which opened the door to further study in data science.",
+    
+    ("tech tools", "technology", "tech skills", "tech familiarity"): "Alongside ChatGPT, Python, and R, I am well-versed in AWS cloud computing, document management systems, and e-discovery software, which enhance my ability to manage data securely and efficiently.",
+
+    ("joke", "something funny", "easter egg", "laugh", "humorous", "humor", "humourous", "humour"): "I've got a good one. Q: What do you call a priest who becomes a lawyer? A: A father-in-law.",
     
     ("business development", "project manager", "project management"): "My experience in business development is strongly linked to my project management roles, where I’ve worked on finding growth opportunities, leading teams, and improving processes. I’ve managed international projects across different time zones and focused on making each project run more smoothly than the last. By setting clear goals and refining workflows, I’ve been able to help teams work more efficiently and achieve better results each time. These combined skills in business growth and project management are strengths I’m excited to bring to future roles.",
         
@@ -40,15 +46,17 @@ responses = {
     
     ("leisure activities", "hobby", "hobbies", "free time", "fun activities"): "In my free time, I enjoy mountain walks while listening to audiobooks, and if the weather isn’t ideal, I unwind with video games. These activities help me recharge.",
     
-    ("what motivates you", "work motivation", "motivational factors"): "I am driven by the challenge of solving complex problems that require both analytical and creative thinking. I find motivation in continuously learning and applying new skills to benefit my team.",
+    ("motivates", "motivation", "motivate", "goal", "goals"): "My career motivation is to help Korean companies enter and succeed in Western markets. I started as a localization manager, using my cultural insight from studying in New Zealand, then moved to international business project management, where I realized the importance of legal knowledge. This led me to study U.S. law at Handong Law School. My goal remains to connect Korean innovation with Western opportunities through my expertise in law, language, and culture.",
+
+    ("dream", "dreams"): "My dream is to work on meaningful projects with others and see them succeed. I find it incredibly rewarding to collaborate with people, sharing ideas and perspectives, and building something together that makes an impact. Being part of a team where we combine our strengths and push through challenges gives me a sense of accomplishment and fulfillment. Whether it’s helping a company enter a new market or creating a solution to a complex problem, it’s that shared success and the journey with others that motivates me most.",
 
     ("this chatbot", "a chatbot", "make this", "chat bot", "made this"): "This chatbot began as an idea for an interactive CV to showcase my skills in an innovative way. I initially considered using a chatbot service but wanted a more customized approach, so I decided to develop it myself with Python. After exploring options like Chatterbot, which wasn’t compatible, I worked with ChatGPT to implement a keyword-based approach that best fit my needs. Using my CV as a foundation, I created prompts and refined them based on past interview experiences. This project demonstrates my initiative and adaptability—I’d be glad to share more details!",
     
     ("challenging project", "difficult project", "overcoming obstacles", "challenging"): "One challenging project involved a high-profile cryptocurrency case where I streamlined the process and coordinated with multiple stakeholders. Utilized different sources to make the quality of our work product much higher. I also set up a collaborative system so there was no confusion.",
     
-    ("handle tight deadlines", "high-pressure situations", "high pressure", "under pressure"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
+    ("handle tight deadlines", "work under pressure", "working under pressure", "high-pressure situations", "high pressure", "under pressure"): "I manage tight deadlines by prioritizing tasks and communicating clearly. My experience in both legal and international project management has prepared me to deliver high-quality work even under pressure.",
 
-    ("contact", "e-mail", "email"): "My E-Mail is kimjy5028@gmail.com My Linkedin page is https://www.linkedin.com/in/jun-young-kim-a928651a7/ ",
+    ("contact", "e-mail", "email", "linkedin"): "Certainly, my E-Mail is kimjy5028@gmail.com My Linkedin page is https://www.linkedin.com/in/jun-young-kim-a928651a7/ ",
 
     ("resume gap", "gap", "gap in experience", "time off work", "break in career"):"I’ve been engaged in freelance e-discovery and legal translation work during this time. Additionally, I have streamlined my CV to focus on my legal experience. I’d be happy to explain further in an interview."
 }
@@ -59,18 +67,21 @@ def get_response(user_input):
     for keywords, response in responses.items():
         if any(keyword in user_input for keyword in keywords):  # Check if any keyword matches
             return response
-    return "I'm sorry, I don’t have a response for that specific question. You might try rephrasing, or we could cover this topic further in a conversation!"
+    return "I'm sorry, I don’t have a response for that specific question. You might try rephrasing, or we could cover this topic further in an interview! My e-mail is kimjy5028@gmail.com"
 
 # Streamlit interface
+import streamlit as st
+
 st.title("Jun Young Kim's CV Chatbot")
 st.markdown("""
-Welcome! This chatbot is here to answer questions about my background, skills, and experience.
-You can ask questions like:
-- "What is your legal background?"
-- "How do you handle working under pressure?"
+Welcome! I’m Jun Young Kim, and this is my interactive CV chatbot, written in Python to help you explore my background, skills, and experience in a more engaging way.
+Instead of scrolling through a document, you can simply ask questions like:
+- "What are your professional experiences?"
+- "What motivates you in your work?"
 
-If you have any further questions, feel free to reach out to me at kimjy5028@gmail.com.
+Feel free to explore and get to know me better! If you have any further questions, don’t hesitate to reach out at kimjy5028@gmail.com, or connect with me on [LinkedIn](https://www.linkedin.com/in/jun-young-kim-a928651a7/).
 """)
+
 
 # Text input for user with both Enter and button to submit
 user_input = st.text_input("You:", "")
